@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#home" class="navbar-brand">Usman Chaudhry</a>
+      <ul class="navbar-menu">
+        <li>
+            <span><a href="#home">Home</a></span>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+      <span class="navbar-icon" id="theme-toggle">🌙</span>
+    </div>
+  </nav>
+  
+  <section id="home">
+    <div class="home-container">
+        <div class="home-left">
+            <p>Hello there!, I'm</p>
+          <h1>Usman Chaudhry.</h1>
+          <p>Subtitle 1</p>
+          <p>Subtitle 2</p>
+        </div>
+        <div class="home-right">
+          <img src="https://www.etonline.com/sites/default/files/styles/max_1280x720/public/images/2022-02/GettyImages-1354820495%20copy.jpg?h=c673cd1c&itok=L65caW8N" alt="Your Name">
+        </div>
+      </div>
+      <div class="home__img">
+        <svg class="home__blob" viewbox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <mask id="mask0" mask-type="alpha">
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547
+                                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775
+                                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666
+                                                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+            </mask>
+            <g mask="url(#mask0)">
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346
+                                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403
+                                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028
+                                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+
+                <image class="home__blob-img" x='-40' y='-50' href="./nobgLinkedin.png"/>
+            </g>
+        </svg>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>This is the About section.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>This is the Skills section.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>This is the Experience section.</p>
+  </section>
+  <section id="portfolio">
+    <h2>portfolio</h2>
+    <p>This is the portfolio section.</p>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-words">© 2023 My Website. All rights reserved.</p>
+  </footer>
+
+  <button id="back-to-top">↑</button>
+
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    let currentTheme = '';
+
+    themeToggle.addEventListener('click', function() {
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+        themeToggle.textContent = '🌙';
+        currentTheme = 'dark';
+      } else {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+        themeToggle.textContent = '☀️';
+        currentTheme = 'light';
+      }
+    });
+
+
+    function setActiveSection() {
+  const sections = document.querySelectorAll('section');
+  const navbarLinks = document.querySelectorAll('.navbar-menu li a');
+
+  sections.forEach((section, index) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+      navbarLinks[index].classList.add('active');
+    } else {
+      navbarLinks[index].classList.remove('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', setActiveSection);
+
+
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 500) {
+    backToTopButton.style.display = 'block';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+  </script>
+</body>
+</html>
