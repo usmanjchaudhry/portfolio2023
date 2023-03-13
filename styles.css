@@ -178,6 +178,7 @@ section {
   .home-left {
     flex-basis: 60%;
     text-align: left;
+
   }
   
   .home-left h1 {
@@ -200,16 +201,16 @@ section {
   }
   
   .home-right img {
-    max-width: 250px;
     height: auto;
     border-radius: 40%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   }
+  
 
 
   .home__blob{
     width: 200px;
-    fill: var(--first-color);
+    fill: #1DA1F2;
 }
 
 .home__blob-img{
